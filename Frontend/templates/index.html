@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Streaming Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-content">
+                <div class="header-icon">🤖</div>
+                <div class="header-text">
+                    <h1>AI Chat Assistant</h1>
+                    <p class="header-subtitle">Powered by Microsoft Agent Framework - Flask Frontend</p>
+                </div>
+            </div>
+            <button id="clearButton" class="clear-button" title="チャットをクリア" style="display: none;">
+                <span>🗑️</span>
+            </button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <!-- ウェルカムスクリーン -->
+            <div class="welcome-screen" id="welcomeScreen">
+                <div class="welcome-icon">💬</div>
+                <h2>ようこそ！</h2>
+                <p>AIアシスタントに何でも質問してください</p>
+                <div class="example-prompts">
+                    <button class="example-button" onclick="setPrompt('AI エージェントは業務生産性を劇的に向上させるか？')">
+                        AI エージェントは業務生産性を劇的に向上させるか？
+                    </button>
+                    <button class="example-button" onclick="setPrompt('散歩はアイデア創出に本当に役立つのか？')">
+                        散歩はアイデア創出に本当に役立つのか？
+                    </button>
+                    <button class="example-button" onclick="setPrompt('集中したい時に音楽を流すのは効果的か？')">
+                        集中したい時に音楽を流すのは効果的か？
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-area">
+            <div class="input-wrapper">
+                <textarea id="promptInput" 
+                          placeholder="メッセージを入力... (Enterで送信、Shift+Enterで改行)" 
+                          class="chat-input"
+                          rows="1"></textarea>
+                <button id="sendButton" class="send-button" title="通常チャット" disabled>
+                    <span class="send-icon">📤</span>
+                </button>
+                <button id="multiAgentButton" class="multi-agent-button" title="マルチエージェント分析" disabled>
+                    <span class="multi-agent-icon">🔀</span>
+                </button>
+            </div>
+            <div class="status-indicator" id="statusIndicator" style="display: none;">
+                <span class="status-dot"></span>
+                <span id="statusText">AI が考え中...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

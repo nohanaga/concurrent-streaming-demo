@@ -1,0 +1,16 @@
+# Agent Framework dependencies
+agent-framework-core
+agent-framework-azure-ai
+
+# Web framework
+fastapi
+uvicorn[standard]
+
+# Environment variables
+python-dotenv
+
+# Azure authentication
+azure-identity
+
+# OpenAI (included as dependency of agent-framework)
+openai
